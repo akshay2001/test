@@ -1,0 +1,307 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Copy_Files_To_Local" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_LocalDesktopFileLocation" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>620,1886</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Copy_Files_To_Local_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Copy_Files_To_Local" sap:VirtualizedContainerService.HintSize="496,1821" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'IHWindowClass'" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="&quot;d&quot;" KeyModifiers="Win">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cf43970a-69fc-4cb1-ae79-e404e6d3e116" InformativeScreenshot="a287ce802cc2417febdf1b5e91756693" Selector="&lt;wnd app='mstsc.exe' cls='TscShellContainerClass' title='glf.cloudwalks.com - Remote Desktop Connection' /&gt;&lt;wnd cls='IHWindowClass' title='Input Capture Window' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:SendHotkey.Target>
+    </ui:SendHotkey>
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="1cb2e314-ce56-44be-a7a8-0abeda65725e" DisplayName="CV Screen Scope 'IHWindowClass'" sap:VirtualizedContainerService.HintSize="434,1517" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
+      <p:CVScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (92,206,39,49)&quot; +&#xA;&quot;Anchor: Text 'Files' (99,257,25,12)&quot;]" DesignTimeCacheId="1cb2e314-ce56-44be-a7a8-0abeda65725e" DesignTimeScaleFactor="1" DisplayName="CV Click - Icon" sap:VirtualizedContainerService.HintSize="400,185" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="e1141053c9ac361eb70cebca744cfdf6" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+              <p:CvClickWithDescriptor.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </p:CvClickWithDescriptor.CursorPosition>
+              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor Id="8c3c0df8-a06f-4221-b2dc-fdbd981cf03b">
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="99, 257, 25, 12" ElementType="Text" Text="Files" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="92, 206, 39, 49" ElementType="Icon" ImageBase64="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" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvClickWithDescriptor.DesignTimeDescriptor>
+              <p:CvClickWithDescriptor.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="cc92ecb0-066a-42f1-aeeb-f0d267494b71">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </p:CvClickWithDescriptor.Target>
+            </p:CvClickWithDescriptor>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'IHWindowClass'" sap:VirtualizedContainerService.HintSize="400,153" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="&quot;c&quot;" KeyModifiers="Ctrl">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b635d42c-dc67-42fc-a83a-ca7fec2cfd74" InformativeScreenshot="8048d1533e7418a3123a2397c4b6f361" Selector="&lt;wnd app='mstsc.exe' cls='TscShellContainerClass' title='glf.cloudwalks.com - Remote Desktop Connection' /&gt;&lt;wnd cls='IHWindowClass' title='Input Capture Window' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: MinimizeButton (876,5,17,18)&quot;]" DesignTimeCacheId="1cb2e314-ce56-44be-a7a8-0abeda65725e" DesignTimeScaleFactor="1" DisplayName="CV Click - MinimizeButton" sap:VirtualizedContainerService.HintSize="400,185" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="392bc877279d266e8f9acfe7169bbc22" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+              <p:CvClickWithDescriptor.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </p:CvClickWithDescriptor.CursorPosition>
+              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor Id="146ceec3-0106-4467-8dd5-3b0fe04df10c">
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="876, 5, 17, 18" ElementType="MinimizeButton" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvClickWithDescriptor.DesignTimeDescriptor>
+              <p:CvClickWithDescriptor.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="0a9e283b-83dc-4009-a130-ad1dc78b392e">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </p:CvClickWithDescriptor.Target>
+            </p:CvClickWithDescriptor>
+            <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[in_LocalDesktopFileLocation]" Recursive="True" />
+            <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'SysListView32'" sap:VirtualizedContainerService.HintSize="400,153" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="&quot;v&quot;" KeyModifiers="Ctrl">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3790fde5-24c6-495d-9b7e-c2880df67941" InformativeScreenshot="900aec0eb3713b20c1b195b463f65300" Selector="&lt;wnd app='explorer.exe' cls='WorkerW' idx='*' /&gt;&lt;wnd cls='SysListView32' title='FolderView' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <Delay Duration="00:00:20" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          </Sequence>
+        </ActivityAction>
+      </p:CVScope.Body>
+      <p:CVScope.DesignTimeCache>
+        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+      </p:CVScope.DesignTimeCache>
+      <p:CVScope.DesignTimeCacheContainer>
+        <uc:CvCacheContainer>
+          <uc:CvCacheContainer.Caches>
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+              <uc:CVCache DataSent="False" DisplayName="Screen CV Click - 'Files' (Main)" Id="1cb2e314-ce56-44be-a7a8-0abeda65725e" InformativeScreenshot="af2008b8dac830f2a8d03b199b8f078f" LogicalPosition="0, 0" OcrText="glf.cloudwalks.com - X W Recycle Bin Word Adobe YESAUTO... Acrobat Change Files Password.vbs X Excel Google Chrome QuickBooks Premier ... QuickBooks Pro Plus 2023" Position="0, 0" ScreenshotGuid="70fcd8c9-c85b-4c8c-89d8-f28a0a548d59" ServerVersion="1">
+                <uc:CVCache.CvAnchorRelations>
+                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                </uc:CVCache.CvAnchorRelations>
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                    <uc:CvElementInfo Category="Icon" Region="92, 206, 39, 49" />
+                    <uc:CvElementInfo Category="Icon" Region="14, 202, 46, 52" />
+                    <uc:CvElementInfo Category="Icon" Region="7, 399, 58, 57" />
+                    <uc:CvElementInfo Category="Icon" Region="10, 102, 53, 53" />
+                    <uc:CvElementInfo Category="Icon" Region="83, 7, 55, 51" />
+                    <uc:CvElementInfo Category="Icon" Region="426, 1, 21, 20" />
+                    <uc:CvElementInfo Category="Icon" Region="8, 598, 55, 53" />
+                    <uc:CvElementInfo Category="Icon" Region="8, 500, 55, 53" />
+                    <uc:CvElementInfo Category="Icon" Region="85, 106, 46, 51" />
+                    <uc:CvElementInfo Category="Icon" Region="9, 304, 54, 49" />
+                    <uc:CvElementInfo Category="MaximizeButton" Region="898, 2, 18, 18" />
+                    <uc:CvElementInfo Category="Icon" Region="15, 6, 43, 48" />
+                    <uc:CvElementInfo Category="CloseButton" Region="921, 3, 18, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="447, 1, 22, 21" />
+                    <uc:CvElementInfo Category="MinimizeButton" Region="876, 5, 17, 18" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1041, 391, 174, 141" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="845, 177, 398, 414" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="418, 1, 550, 27" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="898, 2, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="921, 3, 19, 17" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1035, 387, 181, 153" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1040, 244, 177, 141" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1051, 388, 159, 76" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="898, 387, 137, 109" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="897, 273, 136, 106" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="39, 315, 20, 10" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1042, 452, 170, 9" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1140, 305, 70, 75" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="868, 472, 28, 27" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1032, 291, 188, 88" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="24">
+                    <uc:OcrTextInfo Region="629, 6, 106, 15" Text="glf.cloudwalks.com" />
+                    <uc:OcrTextInfo Region="878, 5, 10, 12" Text="-" />
+                    <uc:OcrTextInfo Region="923, 6, 12, 10" Text="X" />
+                    <uc:OcrTextInfo Region="89, 22, 21, 17" Text="W" />
+                    <uc:OcrTextInfo Region="6, 59, 42, 15" Text="Recycle" />
+                    <uc:OcrTextInfo Region="49, 59, 18, 12" Text="Bin" />
+                    <uc:OcrTextInfo Region="95, 59, 31, 12" Text="Word" />
+                    <uc:OcrTextInfo Region="17, 158, 38, 12" Text="Adobe" />
+                    <uc:OcrTextInfo Region="80, 158, 62, 12" Text="YESAUTO..." />
+                    <uc:OcrTextInfo Region="14, 173, 45, 12" Text="Acrobat" />
+                    <uc:OcrTextInfo Region="16, 257, 43, 15" Text="Change" />
+                    <uc:OcrTextInfo Region="99, 257, 25, 12" Text="Files" />
+                    <uc:OcrTextInfo Region="1, 272, 73, 12" Text="Password.vbs" />
+                    <uc:OcrTextInfo Region="16, 319, 16, 17" Text="X" />
+                    <uc:OcrTextInfo Region="23, 356, 28, 12" Text="Excel" />
+                    <uc:OcrTextInfo Region="16, 455, 40, 15" Text="Google" />
+                    <uc:OcrTextInfo Region="13, 470, 46, 12" Text="Chrome" />
+                    <uc:OcrTextInfo Region="3, 554, 66, 12" Text="QuickBooks" />
+                    <uc:OcrTextInfo Region="5, 569, 43, 12" Text="Premier" />
+                    <uc:OcrTextInfo Region="56, 570, 12, 11" Text="..." />
+                    <uc:OcrTextInfo Region="3, 653, 66, 12" Text="QuickBooks" />
+                    <uc:OcrTextInfo Region="1, 668, 19, 12" Text="Pro" />
+                    <uc:OcrTextInfo Region="22, 668, 24, 12" Text="Plus" />
+                    <uc:OcrTextInfo Region="47, 668, 25, 12" Text="2023" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+            </scg:List>
+          </uc:CvCacheContainer.Caches>
+        </uc:CvCacheContainer>
+      </p:CVScope.DesignTimeCacheContainer>
+      <p:CVScope.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_2" Image="[Image]" Language="en" NoopExecution="False" Profile="Screen" Scale="1" Timeout="100000" />
+        </ActivityFunc>
+      </p:CVScope.OCREngine>
+      <p:CVScope.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="980a77e0-09ac-41fc-8717-32a89cbb15e5" InformativeScreenshot="ac16ab58bfe47438dbab36d43cce1be2" Selector="&lt;wnd app='mstsc.exe' cls='TscShellContainerClass' title='glf.cloudwalks.com - Remote Desktop Connection' /&gt;&lt;wnd cls='IHWindowClass' title='Input Capture Window' /&gt;" WaitForReady="INTERACTIVE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </p:CVScope.Target>
+      <p:CVScope.UseLocalServer>
+        <InArgument x:TypeArguments="x:Boolean" />
+      </p:CVScope.UseLocalServer>
+    </p:CVScope>
+  </Sequence>
+</Activity>
